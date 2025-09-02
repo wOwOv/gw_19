@@ -68,12 +68,12 @@ int main()
     SQLBindCol(hStmt, 4, SQL_C_TCHAR, BuffScore, 40, (SQLLEN*)&lBuffScore);
     SQLGetDiagRec(SQL_HANDLE_STMT, hStmt, 1, (SQLTCHAR*)State, (SQLINTEGER*)&NativeError, (SQLTCHAR*)Message, 1024, &MsgLen);
 
-    /*
+    //*
     //실행하기(INSERT INTO문)
-    SQLExecDirect(hStmt, (SQLTCHAR*)"INSERT INTO Member(ID,Pass,Name) VALUES('myID','2222','long')", SQL_NTS);
+    SQLExecDirect(hStmt, (SQLTCHAR*)L"INSERT INTO account(Pass,Nickname,Score) VALUES('6666','Mareep','13')", SQL_NTS);
     SQLGetDiagRec(SQL_HANDLE_STMT, hStmt, 1, (SQLTCHAR*)State, (SQLINTEGER*)&NativeError, (SQLTCHAR*)Message, 1024, &MsgLen);
-    printf("%s\n\n", Message);
-    */
+    wprintf(L"%s\n\n", Message);
+    //*/
 
     //실행하기(SELECT문 바인딩으로 출력)
     SQLExecDirect(hStmt, (SQLTCHAR*)L"SELECT * FROM account", SQL_NTS);
